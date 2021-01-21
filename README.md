@@ -1,11 +1,11 @@
 # workshop-web
 
-npm install
-
 cd web-server
+npm install
 npm start
 
 cd ..
 
-cd web-server
+cd web-client
+npm install
 npm start
