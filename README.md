@@ -1,16 +1,11 @@
 # workshop-web
 
 install nodeJS
+install mongoDBCompass
 
 # WEB SERVER
 
-initialize the server + dependencies:
-    - npm init
-    - npm install nodemon
-    - npm i express
-    - npm i mongoose
-    - npm i dotenv
-    - ...
+initialize the server + dependencies: npm init && npm install nodemon express mongoose dotenv
 
 explain all dependencies:
     - nodemon
@@ -25,3 +20,5 @@ explain all dependencies:
 3) Create express routes to get/change/delete database user model
 
 # WEB CLIENT
+
+initialize the react application: npx create-react-app ${app-name}

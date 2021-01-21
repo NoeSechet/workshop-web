@@ -22,14 +22,12 @@ mongoose.connect(
 
 app.use(bodyParser.json());
 
-// const routeUser = require('./routes/userRoute');
-// app.use('/user', routeUser);
-
 const { UserModel } = require('./models/userModel');
 
 const routeUser = express.Router();
 
 routeUser.get('/', (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
     UserModel.find({}, (err, users) => {
         if (err) {
             return res.status(400).json({ success: false, error: err })
@@ -42,6 +40,7 @@ routeUser.get('/', (req, res) => {
 })
 
 routeUser.post('/add', (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
     const newUser = new UserModel(
         {
             name: req.body.name,
@@ -58,6 +57,7 @@ routeUser.post('/add', (req, res) => {
 })
 
 routeUser.delete('/delete', (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
     UserModel.deleteOne({ _id: req.body.id }, (err) => {
         if (err) {
             return res.status(400).json({ success: false, error: err})
@@ -68,6 +68,7 @@ routeUser.delete('/delete', (req, res) => {
 })
 
 routeUser.post('/edit', (req, res) => {
+    
     if (!req.body.id || !req.body.hobby) {
         return res.status(400).json({ error: "invalid arguments" })
     }
